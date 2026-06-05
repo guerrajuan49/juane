@@ -1,0 +1,175 @@
+/* ========================================
+   ESTILOS DEL FORMULARIO DE CONTACTO
+   Mejorado con responsividad y accesibilidad
+   ======================================== */
+
+.contacto {
+    padding: 100px 20px;
+    background: #f8f9fb;
+}
+
+.contacto-container {
+    max-width: 1200px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+}
+
+.contacto-info h2 {
+    font-size: 3rem;
+    color: #0b2240;
+    margin-bottom: 20px;
+}
+
+.contacto-info p {
+    font-size: 1.1rem;
+    color: #666;
+    line-height: 1.8;
+}
+
+.contacto-form {
+    background: #fff;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+/* Labels para mejor accesibilidad */
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #0b2240;
+    font-size: 0.95rem;
+}
+
+.contacto-form input,
+.contacto-form textarea {
+    width: 100%;
+    padding: 16px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    font-size: 16px;
+    outline: none;
+    font-family: inherit;
+    transition: border-color 0.3s ease;
+}
+
+/* Estados de focus mejorados */
+.contacto-form input:focus,
+.contacto-form textarea:focus {
+    border-color: #d89b00;
+    box-shadow: 0 0 0 3px rgba(216, 155, 0, 0.1);
+}
+
+/* Validación visual de errores */
+.contacto-form input:invalid:not(:placeholder-shown),
+.contacto-form textarea:invalid:not(:placeholder-shown) {
+    border-color: #ff4444;
+}
+
+/* Botón con mejores efectos */
+.contacto-form button {
+    width: 100%;
+    border: none;
+    background: #d89b00;
+    color: white;
+    padding: 18px;
+    border-radius: 10px;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.contacto-form button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(216, 155, 0, 0.3);
+}
+
+.contacto-form button:active {
+    transform: translateY(0);
+    opacity: 0.9;
+}
+
+/* Botón deshabilitado */
+.contacto-form button:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* Mensajes de éxito y error */
+.form-message {
+    margin-top: 15px;
+    padding: 12px;
+    border-radius: 8px;
+    display: none;
+    font-size: 0.95rem;
+}
+
+.form-message.success {
+    background: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+    display: block;
+}
+
+.form-message.error {
+    background: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+    display: block;
+}
+
+/* ========================================
+   RESPONSIVIDAD
+   ======================================== */
+
+@media (max-width: 768px) {
+    .contacto {
+        padding: 50px 20px;
+    }
+
+    .contacto-container {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .contacto-info h2 {
+        font-size: 2rem;
+    }
+
+    .contacto-info p {
+        font-size: 1rem;
+    }
+
+    .contacto-form {
+        padding: 30px 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .contacto {
+        padding: 40px 15px;
+    }
+
+    .contacto-info h2 {
+        font-size: 1.5rem;
+    }
+
+    .contacto-form {
+        padding: 20px 15px;
+    }
+
+    .contacto-form button {
+        padding: 16px;
+        font-size: 16px;
+    }
+}

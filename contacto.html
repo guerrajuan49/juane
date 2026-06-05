@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solicita tu Presupuesto - Contacto</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #333;
+        }
+
+        .contacto {
+            padding: 100px 20px;
+            background: #f8f9fb;
+        }
+
+        .contacto-container {
+            max-width: 1200px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .contacto-info h2 {
+            font-size: 3rem;
+            color: #0b2240;
+            margin-bottom: 20px;
+        }
+
+        .contacto-info p {
+            font-size: 1.1rem;
+            color: #666;
+            line-height: 1.8;
+        }
+
+        .contacto-form {
+            background: #fff;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #0b2240;
+            font-size: 0.95rem;
+        }
+
+        .contacto-form input,
+        .contacto-form textarea {
+            width: 100%;
+            padding: 16px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            font-size: 16px;
+            outline: none;
+            font-family: inherit;
+            transition: border-color 0.3s ease;
+        }
+
+        .contacto-form input:focus,
+        .contacto-form textarea:focus {
+            border-color: #d89b00;
+            box-shadow: 0 0 0 3px rgba(216, 155, 0, 0.1);
+        }
+
+        .contacto-form input:invalid:not(:placeholder-shown),
+        .contacto-form textarea:invalid:not(:placeholder-shown) {
+            border-color: #ff4444;
+        }
+
+        .contacto-form button {
+            width: 100%;
+            border: none;
+            background: #d89b00;
+            color: white;
+            padding: 18px;
+            border-radius: 10px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .contacto-form button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(216, 155, 0, 0.3);
+        }
+
+        .contacto-form button:active {
+            transform: translateY(0);
+            opacity: 0.9;
+        }
+
+        .contacto-form button:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .form-message {
+            margin-top: 15px;
+            padding: 12px;
+            border-radius: 8px;
+            display: none;
+            font-size: 0.95rem;
+        }
+
+        .form-message.success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+            display: block;
+        }
+
+        .form-message.error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+            display: block;
+        }
+
+        /* Responsividad */
+        @media (max-width: 768px) {
+            .contacto {
+                padding: 50px 20px;
+            }
+
+            .contacto-container {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .contacto-info h2 {
+                font-size: 2rem;
+            }
+
+            .contacto-info p {
+                font-size: 1rem;
+            }
+
+            .contacto-form {
+                padding: 30px 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .contacto {
+                padding: 40px 15px;
+            }
+
+            .contacto-info h2 {
+                font-size: 1.5rem;
+            }
+
+            .contacto-form {
+                padding: 20px 15px;
+            }
+
+            .contacto-form button {
+                padding: 16px;
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="contacto">
+        <div class="contacto-container">
+
+            <div class="contacto-info">
+                <h2>Solicita tu presupuesto</h2>
+                <p>
+                    Cuéntanos los detalles de tu proyecto y nos pondremos
+                    en contacto contigo lo antes posible.
+                </p>
+            </div>
+
+            <form class="contacto-form" id="formularioContacto">
+                <div class="form-group">
+                    <label for="nombre">Nombre completo</label>
+                    <input
+                        id="nombre"
+                        type="text"
+                        name="nombre"
+                        placeholder="Nombre completo"
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="correo">Correo electrónico</label>
+                    <input
+                        id="correo"
+                        type="email"
+                        name="correo"
+                        placeholder="Correo electrónico"
+                        pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="mensaje">Mensaje</label>
+                    <textarea
+                        id="mensaje"
+                        name="mensaje"
+                        rows="6"
+                        placeholder="Escribe una nota o descripción de tu proyecto..."
+                        required
+                    ></textarea>
+                </div>
+
+                <button type="submit">
+                    Enviar solicitud
+                </button>
+
+                <div class="form-message" id="formMessage"></div>
+            </form>
+
+        </div>
+    </section>
+
+    <script>
+        const formulario = document.getElementById('formularioContacto');
+        const mensajeDiv = document.getElementById('formMessage');
+
+        formulario.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const nombre = document.getElementById('nombre').value.trim();
+            const correo = document.getElementById('correo').value.trim();
+            const mensaje = document.getElementById('mensaje').value.trim();
+
+            // Validación básica
+            if (!nombre || !correo || !mensaje) {
+                mostrarMensaje('Por favor completa todos los campos', 'error');
+                return;
+            }
+
+            // Validación de email
+            const emailRegex = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/i;
+            if (!emailRegex.test(correo)) {
+                mostrarMensaje('Por favor ingresa un correo válido', 'error');
+                return;
+            }
+
+            // Simular envío
+            const boton = formulario.querySelector('button');
+            boton.disabled = true;
+            boton.textContent = 'Enviando...';
+
+            setTimeout(() => {
+                mostrarMensaje('¡Solicitud enviada exitosamente! Pronto nos contactaremos contigo.', 'success');
+                formulario.reset();
+                boton.disabled = false;
+                boton.textContent = 'Enviar solicitud';
+            }, 1500);
+        });
+
+        function mostrarMensaje(texto, tipo) {
+            mensajeDiv.textContent = texto;
+            mensajeDiv.className = `form-message ${tipo}`;
+            
+            if (tipo === 'success') {
+                setTimeout(() => {
+                    mensajeDiv.className = 'form-message';
+                }, 3000);
+            }
+        }
+    </script>
+</body>
+</html>
